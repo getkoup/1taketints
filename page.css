@@ -199,7 +199,7 @@ details p a { text-decoration: underline; }
   .daylight-copy > .included { font-size: 14px; }
   .daylight-backdrop { height: 390px; object-position: center 60%; mask-image: linear-gradient(#000 80%, transparent); }
   .daylight-hero::before { background: linear-gradient(90deg, #fffffff2 0%, #f9f8f1d6 55%, #f4f3ec99 100%); }
-  .daylight-copy .hero-buttons, .hero-assurance { display: none; }
+  .daylight-copy .hero-buttons .text-link, .hero-assurance { display: none; }
   .daylight-card { padding: 24px 20px; }
   .daylight-card h2 { font-size: 26px; }
   .studio-trust { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 0; padding-block: 25px; }
