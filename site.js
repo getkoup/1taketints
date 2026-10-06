@@ -37,19 +37,11 @@ new ResizeObserver(() => {
 }).observe(track);
 controls.hidden = false;
 
-// Mobile quote bar: jump to whichever form is closest so its fields land just under the sticky header,
-// and slide the bar away while a form is on screen so it doesn't cover the fields.
+// Mobile quote bar: jump to whichever form is closest so its fields land just under the sticky header.
 const formPanels = [...document.querySelectorAll('.daylight-card, .quote-panel')];
-const mobileCta = document.querySelector('#mobile-cta');
 document.querySelector('[data-form-jump]').addEventListener('click', event => {
   event.preventDefault();
   const nearest = formPanels.reduce((a, b) => Math.abs(a.getBoundingClientRect().top) <= Math.abs(b.getBoundingClientRect().top) ? a : b);
   nearest.scrollIntoView({ block: 'start' });
   nearest.focus({ preventScroll: true });
 });
-const formsInView = new Set();
-const formObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => entry.isIntersecting ? formsInView.add(entry.target) : formsInView.delete(entry.target));
-  mobileCta.classList.toggle('is-hidden', formsInView.size > 0);
-}, { threshold: 0.35 });
-formPanels.forEach(panel => formObserver.observe(panel));
